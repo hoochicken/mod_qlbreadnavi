@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 
 JHtml::_('bootstrap.tooltip');
 ?>
-
 <div class="toggler">
-    <button class="btn" data-toggle="collapse" data-target="#qlbreadnavi<?php echo $module->id; ?>content"><?php echo JText::_('MOD_QLBREADNAVI_MENU');?></button>
+    <button class="btn" data-toggle="collapse"
+            data-target="#qlbreadnavi<?php echo $module->id; ?>content"><?php echo JText::_('MOD_QLBREADNAVI_MENU'); ?></button>
 </div>

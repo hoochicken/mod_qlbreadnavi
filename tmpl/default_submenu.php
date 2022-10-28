@@ -11,15 +11,16 @@ defined('_JEXEC') or die;
 JHtml::_('bootstrap.tooltip');
 //echo '<pre>';print_r($arrSubmenu);die;
 ?>
-<?php if(!empty($strSeparatorBreadcrumb2Submenu)) :?>
+<?php if (!empty($strSeparatorBreadcrumb2Submenu)) : ?>
     <div class="divider dividerBreadcrumb2Submenu">
         <?php echo $strSeparatorBreadcrumb2Submenu; ?>
     </div>
 <?php endif; ?>
 <ul class="submenu qlbreadnavi<?php echo $strModuleclass_sfx; ?> <?php echo $params->get('strDirectionSubmenu', 'horizontal'); ?>">
-    <?php foreach($arrSubmenu as $numKey => $objSubmenuItem): ?>
+    <?php foreach ($arrSubmenu as $numKey => $objSubmenuItem): ?>
         <?php if ('heading' == $objSubmenuItem->type || 'separator' == $objSubmenuItem->type) continue; ?>
-        <li class="item<?php if (isset($objItem->id)) echo $objItem->id; ?> content" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <li class="item<?php if (isset($objItem->id)) echo $objItem->id; ?> content" itemprop="itemListElement"
+            itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" href="<?php echo $objSubmenuItem->flink; ?>" class="pathway">
                 <?php echo $objSubmenuItem->title; ?>
             </a>

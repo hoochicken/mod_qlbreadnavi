@@ -11,11 +11,9 @@ defined('_JEXEC') or die;
 
 JHtml::_('bootstrap.tooltip');
 $boolShowLast = $params->get('boolShowLast', 1);
-
-
 ?>
-
-<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumbies qlbreadnavi<?php echo $strModuleclass_sfx; ?> <?php echo $params->get('strDirection', 'horizontal'); ?>">
+<ul itemscope itemtype="https://schema.org/BreadcrumbList"
+    class="breadcrumbies qlbreadnavi<?php echo $strModuleclass_sfx; ?> <?php echo $params->get('strDirection', 'horizontal'); ?>">
     <?php if (1 == $params->get('boolShowHere', 1)) : ?>
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="showHere active">
             <?php echo JText::_('MOD_BREADCRUMBS_HERE'); ?>&#160;
@@ -36,7 +34,8 @@ $boolShowLast = $params->get('boolShowLast', 1);
         if ($numKey != $numKeyLastItem) :
             // Render all but last item - along with separator
             ?>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="item<?php if (isset($objItem->id)) echo $objItem->id;?> content">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
+                class="item<?php if (isset($objItem->id)) echo $objItem->id; ?> content">
                 <?php
                 //echo '<pre>';print_r($objItem);die;
                 if (!empty($objItem->link)) : ?>

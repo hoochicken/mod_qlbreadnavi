@@ -1,7 +1,7 @@
 <?php
 /**
  * @package        mod_qlbreadnavi
- * @copyright    Copyright (C) 2018 ql.de All rights reserved.
+ * @copyright    Copyright (C) 2022 ql.de All rights reserved.
  * @author        Mareike Riegel mareike.riegel@ql.de
  * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
@@ -72,7 +72,7 @@ class modQlbreadnaviHelper
             $arrSubmenu = $this->getSubmenuitems($objParentItem);
             //echo '<pre>';print_r($arrSubmenu);die;
         }
-        foreach($arrSubmenu as $numKey =>$objItem) {
+        foreach ($arrSubmenu as $numKey => $objItem) {
             $objItem->title = stripslashes(htmlspecialchars($objItem->title, ENT_COMPAT, 'UTF-8'));
             if (1 == $boolMenubound && $strMenuName != $objItem->menutype) {
                 unset($arrSubmenu[$numKey]);
@@ -117,8 +117,7 @@ class modQlbreadnaviHelper
 
         if (strcasecmp(substr($objItem->flink, 0, 4), 'http') && (strpos($objItem->flink, 'index.php?') !== false)) {
             $objItem->flink = JRoute::_($objItem->flink, true, $objItem->params->get('secure'));
-        }
-        else {
+        } else {
             $objItem->flink = JRoute::_($objItem->flink);
         }
         return $objItem;
@@ -131,8 +130,7 @@ class modQlbreadnaviHelper
     {
         if (JLanguageMultilang::isEnabled()) {
             $this->objHome = $this->objMenu->getDefault($this->objLang->getTag());
-        }
-        else {
+        } else {
             $this->objHome = $this->objMenu->getDefault();
         }
         return $this->objHome;
