@@ -10,7 +10,7 @@
     <version>2.0.0</version>
     <description>MOD_QLBREADNAVI_XML_DESCRIPTION</description>
     <updateservers>
-        <server type="extension" priority="1" name="qlcontent - Updates">https://raw.githubusercontent.com/hoochicken/mod_qlbreadnavi/master/_jupdate/mod_qlbreadnavi.xml</server>
+        <server type="extension" priority="1" name="qlcontent - Updates">https://raw.githubusercontent.com/hoochicken/mod_qlbreadnavi/main/_jupdate/mod_qlbreadnavi.xml</server>
     </updateservers>
     <files>
         <filename module="mod_qlbreadnavi">mod_qlbreadnavi.php</filename>
