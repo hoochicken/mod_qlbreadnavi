@@ -96,7 +96,7 @@ class modQlbreadnaviHelper
             case 'separator':
             case 'heading':
                 // No further action needed.
-                continue;
+                break;
 
             case 'url':
                 if ((strpos($objItem->link, 'index.php?') === 0) && (strpos($objItem->link, 'Itemid=') === false)) {
@@ -107,7 +107,7 @@ class modQlbreadnaviHelper
 
             case 'alias':
                 //echo '<pre>';print_r($item);echo $item->objParams->get('aliasoptions');die('ASD');
-                $objItem->flink = 'index.php?Itemid=' . $objItem->params->get('aliasoptions');
+                $objItem->flink = 'index.php?Itemid=' . $objItem->getParams()->get('aliasoptions');
                 break;
 
             default:
@@ -116,7 +116,7 @@ class modQlbreadnaviHelper
         }
 
         if (strcasecmp(substr($objItem->flink, 0, 4), 'http') && (strpos($objItem->flink, 'index.php?') !== false)) {
-            $objItem->flink = JRoute::_($objItem->flink, true, $objItem->params->get('secure'));
+            $objItem->flink = JRoute::_($objItem->flink, true, $objItem->getParams()->get('secure'));
         } else {
             $objItem->flink = JRoute::_($objItem->flink);
         }
