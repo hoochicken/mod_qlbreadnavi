@@ -22,14 +22,14 @@ $arrList = $obj_qlbreadnavi->getList($objActive);
 
 $objDoc = JFactory::getDocument();
 $objDoc->addStyleDeclaration($obj_qlbreadnavi->getStylesDefault());
-if (1 == $params->get('boolStyles', 0)) {
+if ((bool)$params->get('boolStyles', 0)) {
     $objDoc->addStyleDeclaration($obj_qlbreadnavi->getStyles());
 }
-if (1 == $params->get('boolResponsiveActive', 0)) {
+if ((bool)$params->get('boolResponsiveActive', 0)) {
     $objDoc->addStyleDeclaration($obj_qlbreadnavi->getStylesResponsive());
 }
-if (1 == $params->get('boolStylesheets', 1)) {
-    JHtml::stylesheet('mod_qlbreadnavi/styles.css', false, true, false);
+if ((bool)$params->get('boolStylesheets', 1)) {
+    $objDoc->addStyleSheet('media/mod_qlbreadnavi/css/styles.css');
 }
 
 $numCount = count($arrList);

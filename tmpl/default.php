@@ -11,16 +11,16 @@ defined('_JEXEC') or die;
 
 JHtml::_('bootstrap.tooltip'); ?>
 <div class="qlbreadnavi" id="qlbreadnavi<?php echo $module->id; ?>">
-    <?php if (1 == $params->get('boolResponsiveActive', 0)) {
+    <?php if ((bool)$params->get('boolResponsiveActive', 0)) {
         require JModuleHelper::getLayoutPath('mod_qlbreadnavi', 'default_toggler');
     } ?>
     <div id="qlbreadnavi<?php echo $module->id; ?>content"
          class="<?php if (1 == $params->get('boolResponsiveActive', 0)) echo 'collapse'; ?>">
         <?php
-        if (1 == $params->get('boolShowBreadcrumb', 1)) {
+        if ((bool)$params->get('boolShowBreadcrumb', 1)) {
             require JModuleHelper::getLayoutPath('mod_qlbreadnavi', 'default_breadcrumbs');
         }
-        if (1 == $params->get('boolShowSubmenu', 1) && isset($arrSubmenu) && 0 < count($arrSubmenu)) {
+        if ((bool)$params->get('boolShowSubmenu', 1) && isset($arrSubmenu) && 0 < count($arrSubmenu)) {
             require JModuleHelper::getLayoutPath('mod_qlbreadnavi', 'default_submenu');
         }
         ?>
