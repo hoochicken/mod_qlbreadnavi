@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0.1" client="site" method="upgrade">
+    <name>mod_qlbreadnavi</name>
+    <creationDate>2018-01-26</creationDate>
+    <author>ql.de</author>
+    <copyright>Copyright (C) 2018. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>mareike.riegel@ql.de</authorEmail>
+    <authorUrl>http://ql.de</authorUrl>
+    <version>1.2</version>
+    <description>MOD_QLBREADNAVI_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_qlbreadnavi">mod_qlbreadnavi.php</filename>
+        <folder>language</folder>
+        <folder>media</folder>
+        <folder>tmpl</folder>
+        <filename>helper.php</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_qlbreadnavi.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.mod_qlbreadnavi.sys.ini</language>
+    </languages>
+    <media folder="media" destination="mod_qlbreadnavi">
+        <folder>css</folder>
+    </media>
+    <help key="JHELP_EXTENSIONS_MODULE_MANAGER_QLBREADNAVI"/>
+    <config>
+        <fields name="params">
+            <fieldset name="breadcrumb">
+                <field
+                        name="boolShowBreadcrumb"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="MOD_QLBREADNAVI_BREADCRUMB_LABEL"
+                        description="MOD_QLBREADNAVI_BREADCRUMB_DESC">
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+                <field
+                        name="strDirection"
+                        type="list"
+                        default="horizontal"
+                        label="MOD_QLBREADNAVI_DIRECTION_LABEL"
+                        description="MOD_BREADCRUMBS_DIRECTION_DESC">
+                    <option value="vertical">MOD_BREADCRUMBS_VERTICAL</option>
+                    <option value="horizontal">MOD_BREADCRUMBS_HORIZONTAL</option>
+                </field>
+                <field
+                        name="boolShowHere"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="MOD_QLBREADNAVI_SHOWHERE_LABEL"
+                        description="MOD_BREADCRUMBS_FIELD_SHOWHERE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                    <option value="2">MOD_QLBREADNAVI_SHOWHERE_LOCATION</option>
+                </field>
+                <field
+                        name="boolShowLast"
+                        type="radio"
+                        default="1"
+                        class="btn-group btn-group-yesno"
+                        label="MOD_QLBREADNAVI_SHOWLAST_LABEL"
+                        description="MOD_QLBREADNAVI_SHOWLAST_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="strSeparator"
+                        type="text"
+                        default=">"
+                        label="MOD_QLBREADNAVI_SEPARATOR_LABEL"
+                        description="MOD_QLBREADNAVI_SEPARATOR_DESC"/>
+
+            </fieldset>
+            <fieldset name="home">
+                <field
+                        name="showHome"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="MOD_QLBREADNAVI_SHOWHOME_LABEL"
+                        description="MOD_QLBREADNAVI_SHOWHOME_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="homeText"
+                        type="text"
+                        filter="raw"
+                        label="MOD_QLBREADNAVI_HOMETEXT_LABEL"
+                        description="MOD_QLBREADNAVI_HOMETEXT_DESC"/>
+                <field
+                        name="boolHomeBindToMenu"
+                        type="radio"
+                        default="0"
+                        class="btn-group"
+                        label="MOD_QLBREADNAVI_HOMEBINDTOMENU_LABEL"
+                        description="MOD_QLBREADNAVI_HOMEBINDTOMENU_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="strHomeBoundMenu"
+                        type="menu"
+                        class="btn-group"
+                        label="MOD_QLBREADNAVI_HOMEBOUNDMENU_LABEL"
+                        description="MOD_QLBREADNAVI_HOMEBOUNDMENU_DESC">
+                </field>
+            </fieldset>
+
+            <fieldset name="submenu">
+                <field
+                        name="boolShowSubmenu"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="MOD_QLBREADNAVI_SUBMENU_LABEL"
+                        description="MOD_QLBREADNAVI_SUBMENU_DESC">
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+                <field
+                        name="strDirectionSubmenu"
+                        type="list"
+                        default="horizontal"
+                        label="MOD_QLBREADNAVI_DIRECTION_LABEL"
+                        description="MOD_BREADCRUMBS_DIRECTION_DESC">
+                    <option value="horizontal">MOD_BREADCRUMBS_HORIZONTAL</option>
+                    <option value="vertical">MOD_BREADCRUMBS_VERTICAL</option>
+                </field>
+                <field
+                        name="strSeparatorSub"
+                        type="text"
+                        default="|"
+                        label="MOD_QLBREADNAVI_SEPARATOR_LABEL"
+                        description="MOD_QLBREADNAVI_SEPARATOR_DESC"/>
+
+                <field
+                        name="strSeparatorBreadcrumb2Submenu"
+                        type="text"
+                        default="|"
+                        label="MOD_QLBREADNAVI_SEPARATORBREADRUM2SUBMENU_LABEL"
+                        description="MOD_QLBREADNAVI_SEPARATOR_DESC"/>
+            </fieldset>
+
+            <fieldset name="styles">
+                <field
+                        name="boolStylesheets"
+                        type="radio"
+                        default="1"
+                        class="btn-group"
+                        label="MOD_QLBREADNAVI_STYLESHEETS_LABEL"
+                        description="MOD_QLBREADNAVI_STYLESHEETS_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="boolStyles"
+                        type="radio"
+                        default="0"
+                        class="btn-group"
+                        label="MOD_QLBREADNAVI_STYLES_LABEL"
+                        description="MOD_QLBREADNAVI_STYLES_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="strFontColor"
+                       type="color"
+                       default="#ffffff"
+                       label="MOD_QLBREADNAVI_COLOR_LABEL"
+                       description="MOD_QLBREADNAVI_COLOR_DESC"
+                        />
+                <field
+                        name="strTextAlign"
+                        type="radio"
+                        default="left"
+                        class="btn-group"
+                        label="MOD_QLBREADNAVI_TEXTALIGN_LABEL"
+                        description="MOD_QLBREADNAVI_TEXTALIGN_DESC">
+                    <option value="left">MOD_QLBREADNAVI_TEXTALIGN_LEFT</option>
+                    <option value="right">MOD_QLBREADNAVI_TEXTALIGN_RIGHT</option>
+                    <option value="center">MOD_QLBREADNAVI_TEXTALIGN_CENTER</option>
+                    <option value="justify">MOD_QLBREADNAVI_TEXTALIGN_JUSTIFY</option>
+                </field>
+                <field name="numPaddingVertical"
+                       type="integer"
+                       first="0"
+                       last="50"
+                       step="1"
+                       label="MOD_QLBREADNAVI_PADDINGVERTICAL_LABEL"
+                       description="MOD_QLBREADNAVI_PADDINGVERTICAL_DESC"
+                        />
+                <field name="numPaddingHorizontal"
+                       type="integer"
+                       first="0"
+                       last="50"
+                       step="1"
+                       label="MOD_QLBREADNAVI_PADDINGHORIZONTAL_LABEL"
+                       description="MOD_QLBREADNAVI_PADDINGHORIZONTAL_DESC"
+                        />
+                <field type="spacer" label="MOD_QLBREADNAVI_BACKGROUNDSPACER"/>
+                <field name="strBackground"
+                       type="color"
+                       default="#000000"
+                       label="MOD_QLBREADNAVI_COLOR_LABEL"
+                       description="MOD_QLBREADNAVI_COLOR_DESC"
+                        />
+                <field name="numBackgroundOpacity"
+                       type="integer"
+                       first="0"
+                       last="100"
+                       default="100"
+                       step="1"
+                       label="MOD_QLBREADNAVI_OPACITY_LABEL"
+                       description="MOD_QLBREADNAVI_OPACITY_DESC"
+                        />
+                <field type="spacer" label="MOD_QLBREADNAVI_TEXTSPACER_LABEL"/>
+                <field name="strTextColor"
+                       type="color"
+                       default="#0000ff"
+                       label="MOD_QLBREADNAVI_COLOR_LABEL"
+                       description="MOD_QLBREADNAVI_COLOR_DESC"
+                        />
+                <field type="spacer" label="MOD_QLBREADNAVI_SHOWHERESPACER_LABEL"/>
+                <field name="strShowHereColor"
+                       type="color"
+                       default="#0000ff"
+                       label="MOD_QLBREADNAVI_COLOR_LABEL"
+                       description="MOD_QLBREADNAVI_COLOR_DESC"
+                        />
+                <field type="spacer" label="MOD_QLBREADNAVI_BORDERSPACER_LABEL"/>
+                <field name="strBorderColor"
+                       type="color"
+                       default="#ff0000"
+                       label="MOD_QLBREADNAVI_BORDERCOLOR_LABEL"
+                       description="MOD_QLBREADNAVI_BORDERCOLOR_DESC"
+                        />
+                <field name="numBorderwidth"
+                       type="integer"
+                       first="0"
+                       last="10"
+                       step="1"
+                       label="MOD_QLBREADNAVI_BORDERWIDTH_LABEL"
+                       description="MOD_QLBREADNAVI_BORDERWIDTH_DESC"
+                        />
+                <field name="strBorderstyle"
+                       type="list"
+                       label="MOD_QLBREADNAVI_BORDERSTYLE_LABEL"
+                       description="MOD_QLBREADNAVI_BORDERSTYLE_DESC"
+                        />
+            </fieldset>
+            <fieldset name="responsive">
+                <field
+                        name="boolResponsiveActive"
+                        type="radio"
+                        default="0"
+                        class="btn-group"
+                        label="MOD_QLBREADNAVI_RESPONSIVEACTIVE_LABEL"
+                        description="MOD_QLBREADNAVI_RESPONSIVEACTIVE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="numResponsiveLimit"
+                       type="text"
+                       filter="integer"
+                       label="MOD_QLBREADNAVI_RESPONSIVELIMIT_LABEL"
+                       description="MOD_QLBREADNAVI_RESPONSIVELIMIT_DESC"
+                        />
+                <!--field
+                        name="boolBootstrap"
+                        type="radio"
+                        default="0"
+                        class="btn-group"
+                        label="MOD_QLBREADNAVI_BOOTSTRAP_LABEL"
+                        description="MOD_QLBREADNAVI_BOOTSTRAP_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field-->
+                <field
+                        name="strBootstrapModuleClass"
+                        type="list"
+                        default=""
+                        label="MOD_QLBREADNAVI_BOOTSTRAPMODULECLASS_LABEL"
+                        description="MOD_QLBREADNAVI_BOOTSTRAPMODULECLASS_DESC">
+                    <option value="">JNONE</option>
+                    <option value="">MOD_QLBREADNAVI_BOOTSTRAP_B2</option>
+                    <option value="visible-phone">visible-phone</option>
+                    <option value="visible-tablet">visible-tablet</option>
+                    <option value="visible-desktop">visible-desktop</option>
+                    <option value="hidden-phone">hidden-phone</option>
+                    <option value="hidden-tablet">hidden-tablet</option>
+                    <option value="hidden-desktop">hidden-desktop</option>
+                    <option value="">MOD_QLBREADNAVI_BOOTSTRAP_B3</option>
+                    <option value="visible-xs-">visible-xs-</option>
+                    <option value="visible-sm-">visible-sm-</option>
+                    <option value="visible-md-">visible-md-</option>
+                    <option value="visible-lg">hidden-lg</option>
+                    <option value="hidden-xs-">visible-xs-</option>
+                    <option value="hidden-sm-">visible-sm-</option>
+                    <option value="hidden-md-">visible-md-</option>
+                    <option value="hidden-lg-">hidden-lg-</option>
+                </field>
+            </fieldset>
+
+            <fieldset
+                    name="advanced">
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="JFIELD_ALT_LAYOUT_LABEL"
+                        description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+
+                <field
+                        name="moduleclass_sfx"
+                        type="textarea" rows="3"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+
+                <field
+                        name="cache"
+                        type="list"
+                        default="1"
+                        label="COM_MODULES_FIELD_CACHING_LABEL"
+                        description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option
+                            value="1">JGLOBAL_USE_GLOBAL
+                    </option>
+                    <option
+                            value="0">COM_MODULES_FIELD_VALUE_NOCACHING
+                    </option>
+                </field>
+                <field
+                        name="cache_time"
+                        type="text"
+                        default="900"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field
+                        name="cachemode"
+                        type="hidden"
+                        default="itemid">
+                    <option
+                            value="itemid"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

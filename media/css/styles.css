@@ -1,0 +1,21 @@
+/**
+ * @package		mod_qlbreadnavi
+ * @copyright	Copyright (C) 2018 ql.de All rights reserved.
+ * @author 		Mareike Riegel mareike.riegel@ql.de
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+div.qlbreadnavi .dividerBreadcrumb2Submenu {display:block;float:left;}
+div.qlbreadnavi .toggler {display:block;width:auto;margin:0 auto;}
+div.qlbreadnavi .toggler .btn {display:block;width:auto;margin:0 auto;}
+div.qlbreadnavi ul {list-style-type:none;margin:0;}
+div.qlbreadnavi ul.qlbreadnavi {padding:0!important;}
+div.qlbreadnavi ul.vertical ul.breadcrumbies {border-bottom:2px solid #fff;}
+div.qlbreadnavi ul.vertical ul li {text-shadow:none;display:block;clear:both;padding:0;border-top:1px solid #fff;}
+div.qlbreadnavi ul.vertical ul li .divider {display:none;}
+div.qlbreadnavi ul.vertical ul.breadcrumbies li:first-child {border-top:0;}
+div.qlbreadnavi ul.vertical ul li a,.qlbreadnavi ul li span.dull {display:block;}
+
+div.qlbreadnavi ul.horizontal li {display:inline-block;float:left;}
+
+div.qlbreadnavi ul.horizontal {float:left;}
